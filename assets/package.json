@@ -5,7 +5,6 @@
     "scss": "node-sass --output-style compressed --source-map true -o ../priv/static/css scss",
     "autoprefixer": "postcss -u autoprefixer -r  ../priv/static/css/*.css",
     "lint": "eslint js",
-    "browserify": "browserify js/app.js -t [ babelify ] --debug | exorcist ../priv/static/js/app.map.js > ../priv/static/js/app.js",
     "uglify": "mkdir -p ../priv/static/js && uglifyjs js/*.js --source-map -m -o ../priv/static/js/app.js",
     "build:css": "npm run scss && npm run autoprefixer",
     "build:js": "npm run lint && npm run uglify",
