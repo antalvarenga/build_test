@@ -1,0 +1,1 @@
+import"phoenix_html";import{Socket}from"phoenix";let socket=new Socket("/socket",{params:{token:window.userToken}});socket.connect();let channel=socket.channel("topic:subtopic",{});channel.join().receive("ok",e=>{console.log("Joined successfully",e)}).receive("error",e=>{console.log("Unable to join",e)});export default socket;
