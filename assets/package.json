@@ -5,9 +5,10 @@
     "scss": "node-sass --output-style compressed --source-map true -o ../priv/static/css scss",
     "autoprefixer": "postcss -u autoprefixer -r  ../priv/static/css/*.css",
     "lint": "eslint js",
+    "babel": "babel js --out-file ../priv/static/js/app.js --source-maps",
     "uglify": "mkdir -p ../priv/static/js && uglifyjs js/*.js --source-map -m -o ../priv/static/js/app.js",
     "build:css": "npm run scss && npm run autoprefixer",
-    "build:js": "npm run lint && npm run uglify",
+    "build:js": "npm run lint && npm run babel",
     "build:static": "cp -R static/* ../priv/static/",
     "build": "npm-run-all build:*",
     "watch:css": "onchange 'scss/*.scss' -- npm run build:css",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babelify": "^8.0.0",
     "browserify": "^16.1.0",
@@ -30,7 +32,6 @@
     "npm-run-all": "^4.1.2",
     "onchange": "^3.3.0",
     "postcss-cli": "^5.0.0",
-    "uglify-es": "^3.3.9",
-    "uglify-js": "^3.3.11"
+    "uglify-es": "^3.3.9"
   }
 }
